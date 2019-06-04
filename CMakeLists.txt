@@ -27,6 +27,12 @@ include(cmake/Misc.cmake)
 include(cmake/Summary.cmake)
 include(cmake/ConfigGen.cmake)
 
+# add by renma
+find_package(OpenCV REQUIRED)
+#find_package(PythonLibs REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+#target_link_libraries(${PROJ_NAME} ${OpenCV_LIBS})
+
 # ---[ Options
 caffe_option(CPU_ONLY  "Build Caffe without CUDA support" OFF) # TODO: rename to USE_CUDA
 caffe_option(USE_CUDNN "Build Caffe with cuDNN library support" OFF IF NOT CPU_ONLY)
